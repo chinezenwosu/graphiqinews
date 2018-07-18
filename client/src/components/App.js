@@ -1,6 +1,7 @@
 import '../styles/App.css'
 import React, { Component } from 'react'
 import LinkList from './LinkList'
+import CreateLink from './CreateLink'
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Graphiqi News</h1>
         </header>
+        <CreateLink />
         <LinkList />
       </div>
     );
