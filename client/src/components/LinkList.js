@@ -1,3 +1,4 @@
+import '../styles/Link.css'
 import React from 'react'
 import Link from './Link'
 import { gql } from 'apollo-boost'
@@ -17,14 +18,18 @@ class LinkList extends React.Component {
 
     const list = query.allLinks
 
+    if (list.length === 0) {
+      return <div>Sorry, there are currently no links at the moment. Please create a link with the form.</div>
+    }
+
     return (
-      <div>
+      <React.Fragment>
         {
           list.map(link => {
             return <Link key={link.id} link={link} />
           })
         }
-      </div>
+      </React.Fragment>
     )
   }
 }
