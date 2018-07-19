@@ -1,47 +1,32 @@
 import React from 'react'
 import { gql } from 'apollo-boost'
 import { graphql } from 'react-apollo'
+import Form from './Form'
 
 class CreateLink extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      url: '',
-      description: ''
-    }
-  }
-
   render() {
+    const inputs = [{
+      name: "description",
+      placeholder: "This is a description for the link"
+    }, {
+      name: "url",
+      placeholder: "This is the link url"
+    }]
+
     return (
-      <div>
-        <input
-          name="description"
-          value={this.state.description}
-          type="text"
-          onChange={(e) => this.setState({ description: e.target.value })}
-          placeholder="This is a description for the link"
-        />
-        <input
-          name="url"
-          value={this.state.url}
-          type="text"
-          onChange={(e) => this.setState({ url: e.target.value })}
-          placeholder="This is the link url"
-        />
-        <button type="submit" onClick={this._createLink}>Create Link</button>
-      </div>
+      <Form
+        inputs={inputs}
+        onSubmit={(variables) => this._createLink(variables)}
+        submitText="Create"
+      />
     )
   }
 
-  _createLink = async() => {
-    const { description, url } = this.state
-    await this.props.createLinkMutation({
-      variables: {
-        description,
-        url
-      }
-    })
+  _createLink = async(variables) => {
+    console.log("variables", variables)
+    // await this.props.createLinkMutation({
+    //   variables
+    // })
   }
 }
 
