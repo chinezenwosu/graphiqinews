@@ -3,20 +3,91 @@
 }
 
 .App-header {
-  background-color: #222;
   padding: 20px;
-  color: white;
 }
 
 .App-title {
   font-size: 1.5em;
+  display: inline-block;
 }
 
 .App-intro {
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.App-main {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
+
+.App-column {
+  width: 500px;
+  text-align: left;
+}
+
+.App-column.App-column-2:first-child {
+  margin-right: 20px;
+}
+
+.App-column.App-column-2:last-child {
+  margin-left: 20px;
+}
+
+.App-logo {
+  display: inline-block;
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.chat {
+  margin: 0 auto;  
+  position: absolute;
+  width: 32px;
+  height: 20px;
+  background-color:rebeccapurple;
+  border-radius: 2px;
+}
+
+.lines {
+  width: 18px;
+  height: 1px;
+  background-color: white;
+  margin: 4px 7px;
+}
+
+.lines:first-child {
+  animation: fill-lines 0.5s forwards 1s;
+}
+
+.lines:nth-child(2) {
+  animation: fill-lines 0.5s forwards 1.5s;
+}
+
+.lines:last-child {
+  animation: fill-lines 0.5s forwards 2s;
+}
+
+.chat:after {
+  content: "";
+  display: block; 
+  position: absolute;
+  top: 20px;
+  left: 6px;
+  width: 0;
+  border-width: 4px 4px 0;
+  border-style: solid;
+  border-color: rebeccapurple transparent;
+}
+
+@keyframes fill-lines {
+  from {
+    width: 0;
+    background-color:red;
+  }
+  to {
+    width:18px;
+    background-color:white;
+  }
+}
+  
